@@ -5,7 +5,7 @@ let initialState = {
 	postData: [
 		{id: 1, message: 'Hi how are your?', likesCount: 24},
 		{id: 2, message: "It's my first post", likesCount: 32},
-		{id: 3, message: "У меня получается!", likesCount: 100},
+		{id: 3, message: "Very good", likesCount: 100},
 	],
 	newPostText: 'IT'
 }
