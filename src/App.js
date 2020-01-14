@@ -1,40 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {BrowserRouter, Route} from 'react-router-dom';
+import React, { Fragment } from "react";
+import "./App.css";
+import { Route } from "react-router-dom";
+import Header from "./components/Header/Header.js";
+import Navbar from "./components/Navbar/Navbar.js";
+import DialogsContainer from "./components/Dialogs/DialogsContainer.js";
+import Profile from "./components/Profile/Profile.js";
+import UsersContainer from "./components/Users/UsersContainer.js";
+import NewsContainer from "./components/News/NewsContainer";
 
-import Header from './components/Header/Header.js';
-import Navbar from './components/Navbar/Navbar.js';
-import Profile from './components/Profile/Profile.js';
-import DialogsContainer from './components/Dialogs/DialogsContainer.js';
-
-
-
-const App = (props) => {
-
-	debugger;
-  	return (
-  	<BrowserRouter>
-	    <div className="app-wrapper">
-	      	<Header />
-	      	<Navbar />
-	      	<div className="app-wrapper-content">
-		      	<Route path="/dialogs" render={ () => <DialogsContainer 
-		      		store={props.store}
-		      		/>} />
-
-		      		{/*state={props.state.dialogsPage}*/}
-		      		{/*dialogsData={props.state.dialogPage.dialogsData}*/}
-		      	
-		      	<Route path="/profile" render={ () => <Profile 
-		      		store={props.store}/>} />
-
-		      	{/*profilePage={props.state.profilePage}*/}
-		   	</div>
-	    </div>
-	</BrowserRouter>
-  	);
-}
-// newPostText={props.newPostText}
+const App = props => (
+  <Fragment>
+    <div className="app-wrapper">
+      <Header />
+      <Navbar />
+      <div className="app-wrapper-content">
+        <Route path="" />
+        <Route path="/dialogs" render={() => <DialogsContainer />} />
+        <Route path="/profile" render={() => <Profile />} />
+        <Route path="/users" render={() => <UsersContainer />} />
+        <Route path="/news" render={() => <NewsContainer />} />
+        <Route path="/settings" />
+      </div>
+    </div>
+  </Fragment>
+);
 
 export default App;

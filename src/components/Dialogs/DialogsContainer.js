@@ -1,31 +1,48 @@
-import React from 'react';
-import clasess from './Dialogs.module.css';
-import DialogItem from './DialogItem/DialogItem.js';
-import Message from './Message/Message.js';
-import Dialogs from './Dialogs.js';
-import {NavLink} from 'react-router-dom';
-import {updateNewMessageBodyCreator, sendMessageActionCreator} from "../../redux/dialogs_reducer.js";
+import Dialogs from "./Dialogs.js";
+import {
+  updateNewMessageBodyCreator,
+  sendMessageActionCreator
+} from "../../redux/dialogs-reducer.js";
+import { connect } from "react-redux";
 
+// const DialogsContainer = props => {
+//   let state = props.store.getState();
 
-const DialogsContainer = (props) => {
+//   let newMessageBody = state.newMessageBody;
+//   let onSendMessageClick = () => {
+//     props.store.dispatch(sendMessageActionCreator());
+//   };
+//   let onNewMessageChange = body => {
+//     props.store.dispatch(updateNewMessageBodyCreator(body));
+//   };
 
-	let state = props.store.getState().dialogPage;
-
-	let newMessageBody = state.newMessageBody;
-	let onSendMessageClick = () => {
-		props.store.dispatch(sendMessageActionCreator() );
-	}
-	let onNewMessageChange = (body) => {
-		props.store.dispatch(updateNewMessageBodyCreator(body));
-	}
-				
-	return (
-		<Dialogs 
-			updateNewMessageBodyCreator={onNewMessageChange}
-			sendMessageActionCreator={onSendMessageClick}
-			dialogPage={state}
-			/>
-	);
-};	
+//   return (
+//     <Dialogs
+//       addEditMessage={onNewMessageChange}
+//       addMessage={onSendMessageClick}
+//       dialog={state.dialogsReducer.dialogData}
+//       message={state.dialogsReducer.messageData}
+//       editChangeMessage={state.dialogsReducer.editChangeMessage}
+//     />
+//   );
+// };
+let mapStateToProps = state => {
+  return {
+    dialog: state.dialogsReducer.dialogData,
+    message: state.dialogsReducer.messageData,
+    editChangeMessage: state.dialogsReducer.editChangeMessage
+  };
+};
+let mapDispatchToProps = dispatch => {
+  return {
+    addMessage: () => {
+      dispatch(sendMessageActionCreator());
+    },
+    addEditMessage: body => {
+      dispatch(updateNewMessageBodyCreator(body));
+    }
+  };
+};
+let DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 export default DialogsContainer;
