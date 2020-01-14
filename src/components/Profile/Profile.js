@@ -1,23 +1,16 @@
-import React from 'react';
-import clasess from './Profile.module.css';
-import MyPosts from './MyPosts/MyPosts.js';
-import ProfileInfo from './ProfileInfo/ProfileInfo.js';
-import MyPostsContainer from './MyPosts/MyPostsContainer.js';
+import React from "react";
+import clasess from "./Profile.module.css";
+// import MyPosts from "./MyPosts/MyPosts.js";
+import MyPostsContainer from "./MyPosts/MyPostsContainer.js";
+import ProfileInfo from "./ProfileInfo/ProfileInfo.js";
 
-
-const Profile = (props) => {
-	debugger;
-	return (
-		<div className={clasess.content}>
-		  	<ProfileInfo />
-			<MyPostsContainer 
-				store={props.store}
-				 />
-
-				{/*postData={props.store.getState().profilePage.postData} 
-				newPostText={props.store.getState().profilePage.newPostText}*/}
-		</div>
-	);
-}
+const Profile = props => {
+  return (
+    <div className={clasess.content}>
+      <ProfileInfo />
+      <MyPostsContainer />
+    </div>
+  );
+};
 
 export default Profile;
