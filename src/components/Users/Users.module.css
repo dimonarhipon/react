@@ -1,0 +1,11 @@
+.image_wrap {
+  width: 100px;
+  height: 100px;
+}
+
+.selected {
+  font-weight: bold;
+}
+.button {
+  cursor: pointer;
+}
