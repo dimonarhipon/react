@@ -1,12 +1,15 @@
-
-
 .nav {
-	grid-area: n;
-	background-color: tomato;
+  grid-area: n;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: tomato;
 }
-.item {
-	color: #ffffff;
+.item a {
+  padding: 2px;
+  padding-left: 15px;
+  color: #fff;
+  text-decoration: none;
 }
-.active {
-	text-decoration: underline;
+a.active {
+  color: #000;
 }
