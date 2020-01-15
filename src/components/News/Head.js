@@ -1,23 +1,21 @@
 import React from "react";
 
 class Head extends React.Component {
-  // state = {
-  //   showModal: true
-  // };
-  // onShow = () => {
-  //   this.setState({
-  //     showModal: !this.state.showModal
-  //   });
-  // };
+  state = {
+    showModal: true
+  };
+  onShow = () => {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  };
   render() {
     return (
       <div>
-        {/* <button onClick={this.onShow}>Показать заголовок</button>
-        {this.state.showModal ? <h1>Да</h1> : null} */}
+        {this.state.showModal ? <h1>Title</h1> : null}
         <h2>Yes</h2>
-        <button onClick={() => this.props.close()}>
-          Да я смог, начинай сначала
-        </button>
+        <button onClick={this.onShow}>Открыть/Закрыть Title</button>
+        <button onClick={() => this.props.close()}>Закрыть общее</button>
       </div>
     );
   }

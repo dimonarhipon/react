@@ -39,10 +39,9 @@ let News = props => {
         <button onClick={onNews}>Добавить новость</button>
       </div>
       <div>
-        <button onClick={() => props.show()}>Я смог?</button>
+        <button onClick={() => props.show()}>Открыть общее</button>
         {props.showClose ? <Head close={props.close} /> : null}
       </div>
-      {/* <Head /> */}
       <div>
         {props.newsData.map(({ id, title, desc }) => (
           <New

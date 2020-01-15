@@ -7,13 +7,10 @@ const CLOSE = "CLOSE";
 
 let initialState = {
   newsData: [],
-  changeTitle: "Ты победитель",
-  changeDesc: "ты явно не зря тратишь время. Это является подтверждением",
+  changeTitle: "Добавь заголовок",
+  changeDesc: "Описание новости",
   counter: 0,
   showClose: false
-  //   showOpen: true,
-  //   showClose: false
-  // }
 };
 let newsReducer = (state = initialState, action) => {
   switch (action.type) {

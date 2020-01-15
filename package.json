@@ -1,5 +1,5 @@
 {
-  "name": "first-react",
+  "name": "dimonarhipon-social",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://dimonarhipon.github.io/react",
@@ -37,5 +37,7 @@
   },
   "devDependencies": {
     "gh-pages": "^2.2.0"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
