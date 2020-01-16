@@ -13,9 +13,7 @@ class UsersContainer extends React.Component {
   componentDidMount() {
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${
-          this.props.currentPage
-        }&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
       )
       .then(response => {
         debugger;
@@ -26,9 +24,7 @@ class UsersContainer extends React.Component {
     this.props.setCurrentPage(pageNumber);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${
-          this.props.pageSize
-        }`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
       )
       .then(response => {
         debugger;
@@ -39,8 +35,8 @@ class UsersContainer extends React.Component {
   render() {
     return (
       <Users
-        // totalUsersCount={this.props.totalUsersCount}
-        pageSize={this.prpos.pageSize}
+        totalUsersCount={this.props.totalUsersCount}
+        pageSize={this.props.pageSize}
         currentPage={this.props.currentPage}
         onPageChange={this.onPageChange}
         users={this.props.users}
@@ -76,7 +72,4 @@ let mapStateToDispatch = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapStateToDispatch
-)(UsersContainer);
+export default connect(mapStateToProps, mapStateToDispatch)(UsersContainer);
