@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./ProfileInfo.module.css";
+import ProfileStatus from "./ProfileStatus.js";
 
 class ProfileInfo extends React.Component {
   render() {
@@ -11,10 +12,11 @@ class ProfileInfo extends React.Component {
             alt="content"
           />
         </div>
-        <div className={classes.descriptionBlock}>ava+ description</div>
+        <div className={classes.descriptionBlock}>
+          <ProfileStatus status="Hello" />
+        </div>
       </div>
     );
   }
-  
-};
+}
 export default ProfileInfo;
