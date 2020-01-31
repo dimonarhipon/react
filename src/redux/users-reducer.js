@@ -2,12 +2,14 @@ const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
 const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
+const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
 
 let initialState = {
   users: [],
   pageSize: 5,
   totalUsersCount: 21,
-  currentPage: 1
+  currentPage: 1,
+  isFetching: true
 };
 //   {
 //     id: 1,
@@ -72,33 +74,44 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         currentPage: action.currentPage
       };
+    case TOGGLE_IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.isFetching
+      };
     default:
       return state;
   }
 };
 
-export const followActionCreator = userId => {
+export const follow = userId => {
   return {
     type: FOLLOW,
     userId: userId
   };
 };
-export const unfollowActionCreator = userId => {
+export const unfollow = userId => {
   return {
     type: UNFOLLOW,
     userId: userId
   };
 };
-export const setUsersActionCreator = users => {
+export const setUsers = users => {
   return {
     type: SET_USERS,
     users: users
   };
 };
-export const setCurrentPageAC = currentPage => {
+export const setCurrentPage = currentPage => {
   return {
     type: SET_CURRENT_PAGE,
     currentPage
+  };
+};
+export const toggleIsFetching = isFetching => {
+  return {
+    type: TOGGLE_IS_FETCHING,
+    isFetching
   };
 };
 
